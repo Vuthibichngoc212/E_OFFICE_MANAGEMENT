@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import routes from '@/routes/routes.tsx';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import { routes } from './routes';
 
 const AppRoutes = () => {
 	return useRoutes(routes);

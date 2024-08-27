@@ -1,18 +1,20 @@
 import { RouteObject } from 'react-router/dist/lib/context';
 import { About, AboutDetail } from '@/pages/About';
-import { Home } from '@/pages/Home';
-import { DefaultLayout, SidebarLayout } from '@/components/layout';
+// import { Home } from '@/pages/Home';
+import { DefaultLayout } from '@/components/layout';
+import SignInScreen from '@/pages/auth/SignInScreen/SignInScreen';
 
 const routes: RouteObject[] = [
 	{
 		path: '/',
-		element: <SidebarLayout />,
-		children: [
-			{
-				path: '',
-				element: <Home />
-			}
-		]
+		element: <SignInScreen />
+		// element: <Sidebar />
+		// children: [
+		// 	{
+		// 		path: '',
+		// 		element: <Home />
+		// 	}
+		// ]
 	},
 	{
 		path: 'about',
@@ -30,4 +32,4 @@ const routes: RouteObject[] = [
 	}
 ];
 
-export default routes;
+export { routes };
