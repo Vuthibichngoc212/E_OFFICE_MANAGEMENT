@@ -1,27 +1,14 @@
 import HeaderTitle from '@/components/layout/HeaderTitle/HeaderTitle';
 import FormikTextField from '@/components/common/FormElements/FormikTextField/FormikTextField';
 // import { LoadingButton } from '@mui/lab';
-import { Box, Card, Checkbox, FormControlLabel, Grid, Typography } from '@mui/material';
+import { Box, Card, Checkbox, FormControlLabel, Grid } from '@mui/material';
 import { Form, Formik } from 'formik';
 import bg from '@/assets/images/banner.jpg';
 import logo from '@/assets/images/logo-2.png';
 import { LoginRequestBody } from '../types/auth.types';
 import theme from '@/themes/theme.d';
-// import { useNavigate } from 'react-router-dom';
-// import useAuth from '../../hooks/useAuth';
-// import { ROUTE_PATH } from '@/constants/route-path.constants';
-// import { LoginRequestBody } from '../../types/auth.types';
-// import useCommonStore from '@/stores/common.stores';
+import LoadingButton from '@mui/lab/LoadingButton';
 const SignInScreen = () => {
-	// const navigate = useNavigate();
-	// const { signIn, isPendingSignIn } = useAuth();
-	// const { setIsSignIn } = useCommonStore();
-	// console.log(isPendingSignIn);
-	// const handleSubmit = async (data: LoginRequestBody) => {
-	// 	await signIn({ data });
-	// 	navigate(ROUTE_PATH.STUDENT.INDEX);
-	// 	setIsSignIn(true);
-	// };
 	return (
 		<Box sx={{ maxHeight: '99vh' }}>
 			<Grid container>
@@ -121,7 +108,7 @@ const SignInScreen = () => {
 											control={<Checkbox disabled />}
 											label="Đăng nhập bằng tài khoản nội bộ"
 										/>
-										{/* <LoadingButton
+										<LoadingButton
 											fullWidth
 											variant="contained"
 											disabled={!isValid}
@@ -135,21 +122,12 @@ const SignInScreen = () => {
 											}}
 										>
 											Đăng nhập
-										</LoadingButton> */}
+										</LoadingButton>
 									</Form>
 								)}
 							</Formik>
 						</Box>
 					</Card>
-					<Box sx={{ position: 'absolute', bottom: '2.4rem' }}>
-						<Typography
-							variant="subbody1_regular"
-							sx={{ color: theme.palette.neutral.coolGray, textAlign: 'center' }}
-						>
-							Copyright © 2024 Phenikaa University. All Rights Reserved. Developed by PHX Smart
-							School
-						</Typography>
-					</Box>
 				</Grid>
 			</Grid>
 		</Box>
