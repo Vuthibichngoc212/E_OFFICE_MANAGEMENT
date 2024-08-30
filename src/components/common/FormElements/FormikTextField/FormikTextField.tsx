@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
-// import theme from '@/themes/theme.d';
+import theme from '@/themes/theme.d';
 
 interface FormikTextFieldProps {
 	defaultLabel?: string;
@@ -41,7 +41,10 @@ const FormikTextField = ({
 	return (
 		<Box>
 			{topLabel && (
-				<Typography variant="body2_regular" sx={{ mb: '0.4rem', display: 'block', color: 'red' }}>
+				<Typography
+					variant="body2_regular"
+					sx={{ mb: '0.4rem', display: 'block', color: theme.palette.neutral.coolGray }}
+				>
 					{topLabel}
 					{required && (
 						<Typography sx={{ color: 'red', position: 'relative', top: '-2px' }} component="span">

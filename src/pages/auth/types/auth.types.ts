@@ -1,6 +1,6 @@
 export type LoginRequestBody = {
 	password: string;
-	username: string;
+	email: string;
 };
 export type LoginRequest = {
 	data: LoginRequestBody;
