@@ -13,10 +13,11 @@ export const ROUTE_PATH = {
 		LIST: '/devices',
 		DETAIL: '/devices/:id'
 	},
-	COMPANY: {
-		INDEX: '/companies',
-		LIST: '/companies',
-		DETAIL: '/companies/:id'
+	DOCUMENT: {
+		INDEX: '/documents',
+		INCOMING: '/documents/incoming',
+		OUTGOING: '/documents/outgoing',
+		INTERNAL: '/documents/internal'
 	},
 	PERMISSION: {
 		INDEX: '/permissions'

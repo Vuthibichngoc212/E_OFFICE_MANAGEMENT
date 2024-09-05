@@ -3,25 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { routes as dRoutes } from '@/routes/routes';
 import { sidebarRoutes } from './sidebarRoutes';
 
-// interface RouteType {
-// 	label: string;
-// 	path: string;
-// 	component: React.ComponentType<any>;
-// 	children?: RouteType[];
-// }
-
-interface SidebarType {
-	path: string;
-	name: string;
-	label: string;
-	icon: React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
-	children?: SidebarType[];
-}
-
 const useRouter = () => {
 	const makeNavigate = useNavigate();
 	const [routes, setRoutes] = useState<any[]>([]);
-	const [sidebar, setSideBar] = useState<SidebarType[]>();
+	const [sidebar, setSideBar] = useState<any[]>();
 	const [activeRoute, setActiveRoute] = useState<any>();
 	useEffect(() => {
 		setSideBar(sidebarRoutes);

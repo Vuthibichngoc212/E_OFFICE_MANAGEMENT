@@ -5,7 +5,7 @@ interface Props {
 }
 
 const CopyrightMini = ({ isMini }: Props) => {
-	const currentYear = new Date().getFullYear();
+	// const currentYear = new Date().getFullYear();
 	return (
 		<Box
 			sx={{
@@ -25,7 +25,7 @@ const CopyrightMini = ({ isMini }: Props) => {
 					<img src="image/pnk-sm-light.png" height={20} width="auto" />
 				</Link>
 			)}
-			<span>©{currentYear}</span>
+			{/* <span>©{currentYear}</span> */}
 		</Box>
 	);
 };

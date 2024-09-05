@@ -1,5 +1,6 @@
 import {
 	Box,
+	Collapse,
 	IconButton,
 	List,
 	ListItem,
@@ -9,10 +10,12 @@ import {
 	useMediaQuery
 } from '@mui/material';
 import Logo from '@/assets/images/logo-sidebar.png';
+import logout from '@/assets/icons/logout.svg';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import CopyrightMini from '@/components/common/Copyright/MiniCopyright';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Divider from '@mui/material/Divider';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 import { useStyles } from './Sidebar.styles';
@@ -20,7 +23,6 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useRouter from '@/router/routerHook';
 import theme from '@/themes/theme.d';
-// import theme from '../../../themes/theme';
 
 const drawerWidth = 267;
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -75,6 +77,8 @@ const SideBar = () => {
 	const classes = useStyles();
 	const { routes, sidebar, navigate, activeRoute, setActiveRoute } = useRouter();
 	const [open, setOpen] = useState(() => (!is425px ? true : false));
+	const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({});
+
 	useEffect(() => {
 		let pathName = '';
 		for (let i = 0; i < routes.length; i++) {
@@ -102,8 +106,13 @@ const SideBar = () => {
 		}
 		setActiveRoute({ path: pathName });
 	}, [location, routes, setActiveRoute]);
+
 	const handleDrawer = () => {
 		setOpen(!open);
+	};
+
+	const handleToggle = (section: string) => {
+		setExpandedSections((prev) => ({ ...prev, [section]: !prev[section] }));
 	};
 
 	return (
@@ -145,7 +154,6 @@ const SideBar = () => {
 				<Divider />
 				<List>
 					{sidebar?.map((data) => {
-						if (data.name === 'profile') return;
 						return (
 							<Box
 								key={data.label}
@@ -171,7 +179,7 @@ const SideBar = () => {
 							>
 								<ListItem
 									disablePadding
-									sx={{ display: 'block' }}
+									// sx={{ display: 'block' }}
 									onClick={() => navigate(data.path)}
 								>
 									<ListItemButton
@@ -181,7 +189,7 @@ const SideBar = () => {
 											...(activeRoute?.path === data.path || location.pathname === data.path
 												? {
 														'& path': {
-															fill: 'white'
+															fill: '#fff'
 														}
 													}
 												: {})
@@ -196,15 +204,64 @@ const SideBar = () => {
 											sx={{ opacity: open ? 1 : 0 }}
 										/>
 									</ListItemButton>
+
+									{data.children && data.children.length > 0 && (
+										<IconButton onClick={() => handleToggle(data.label)}>
+											{expandedSections[data.label] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+										</IconButton>
+									)}
 								</ListItem>
-								{data.label === 'permissions' && <Divider />}
+
+								<Collapse in={expandedSections[data.label]} timeout="auto" unmountOnExit>
+									<Box sx={{ paddingLeft: open ? 4 : 2 }}>
+										{data.children?.map((child: any) => (
+											<ListItem
+												key={child.name}
+												disablePadding
+												onClick={() => navigate(child.path)}
+												sx={{ display: 'block' }}
+											>
+												<ListItemButton>
+													<ListItemText primary={child.name} sx={{ opacity: open ? 1 : 0 }} />
+												</ListItemButton>
+											</ListItem>
+										))}
+									</Box>
+								</Collapse>
 							</Box>
 						);
 					})}
 				</List>
-				<Box className={classes.sidebarFooter}>
-					<CopyrightMini />
+				<Divider />
+				<Box
+					className={classes.sidebarFooter}
+					// sx={{
+					// 	position: 'absolute', // Fix it at the bottom
+					// 	bottom: 0, // Align it to the bottom
+					// 	width: '100%', // Make it full width
+					// 	display: 'flex',
+					// 	alignItems: 'center'
+					// }}
+				>
+					<ListItemButton
+						className={classes.listItemRoot}
+						sx={{
+							paddingLeft: open ? '0px' : '10px'
+						}}
+					>
+						<ListItemIcon>
+							<img src={logout} alt="Đăng xuất" />
+						</ListItemIcon>
+						<ListItemText
+							primary="Đăng xuất"
+							sx={{
+								opacity: open ? 1 : 0,
+								'& .MuiTypography-root': { color: ' #E74F39', fontSize: '14px' }
+							}}
+						/>
+					</ListItemButton>
 				</Box>
+
 				<IconButton className={classes.iconButtonRoot} onClick={handleDrawer}>
 					{open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
 				</IconButton>

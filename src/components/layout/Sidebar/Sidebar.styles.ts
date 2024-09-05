@@ -27,11 +27,7 @@ export const useStyles = makeStyles(() => ({
 		alignItems: 'center',
 		position: 'absolute',
 		bottom: 0,
-		right: 0,
-		width: '100%',
-		minHeight: '48px',
-		backgroundColor: theme.palette.primary.main,
-		boxShadow: '0px 0px 1px 0px rgb(244, 244, 244), 0px 2px 6px 2px rgb(60, 64, 67, 0.15)'
+		right: 0
 	},
 	iconButtonRoot: {
 		'&.MuiIconButton-root': {
