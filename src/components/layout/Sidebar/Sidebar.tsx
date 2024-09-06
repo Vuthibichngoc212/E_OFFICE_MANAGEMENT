@@ -128,7 +128,8 @@ const SideBar = () => {
 							boxShadow:
 								'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
 							border: 'none',
-							padding: open ? '2.4rem 2.4rem 0 2.4rem' : 0,
+							// padding: open ? '1.6rem 1.6rem 0 1.6rem' : 0,
+							padding: open ? '1.6rem 0 0 0' : 0,
 							'& > div:first-of-type': {
 								display: 'flex',
 								justifyContent: 'center !important',
@@ -151,7 +152,6 @@ const SideBar = () => {
 						<img src={Logo} alt="logo" />
 					</Box>
 				</DrawerHeader>
-				<Divider />
 				<List>
 					{sidebar?.map((data) => {
 						return (
@@ -160,16 +160,21 @@ const SideBar = () => {
 								sx={
 									activeRoute?.path === data.path || location.pathname === data.path
 										? {
-												backgroundColor: theme.palette.primary.main,
+												// backgroundColor: theme.palette.primary.main,
+												backgroundColor: '#E3EFFB',
 												color: theme.palette.neutral.main,
-												borderRadius: '0.8rem',
+												padding: '0px',
+												// color: '#223671',
+												// borderRadius: '0.8rem',
 												'& .MuiButtonBase-root': {
 													'& .MuiListItemIcon-root': {
-														color: theme.palette.neutral.main
+														// color: theme.palette.neutral.main
+														color: '#223671'
 													},
 													'& .MuiListItemText-root': {
 														'& .MuiTypography-root': {
-															color: theme.palette.neutral.main
+															// color: theme.palette.neutral.main
+															color: '#223671'
 														}
 													}
 												}
@@ -177,11 +182,7 @@ const SideBar = () => {
 										: {}
 								}
 							>
-								<ListItem
-									disablePadding
-									// sx={{ display: 'block' }}
-									onClick={() => navigate(data.path)}
-								>
+								<ListItem disablePadding onClick={() => navigate(data.path)}>
 									<ListItemButton
 										className={classes.listItemRoot}
 										sx={{
@@ -206,8 +207,15 @@ const SideBar = () => {
 									</ListItemButton>
 
 									{data.children && data.children.length > 0 && (
-										<IconButton onClick={() => handleToggle(data.label)}>
-											{expandedSections[data.label] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+										<IconButton
+											onClick={() => handleToggle(data.label)}
+											sx={{ padding: '8px 16px 8px 8px' }}
+										>
+											{expandedSections[data.label] ? (
+												<ExpandLessIcon sx={{ width: '20px', height: '20px' }} />
+											) : (
+												<ExpandMoreIcon />
+											)}
 										</IconButton>
 									)}
 								</ListItem>
@@ -222,7 +230,11 @@ const SideBar = () => {
 												sx={{ display: 'block' }}
 											>
 												<ListItemButton>
-													<ListItemText primary={child.name} sx={{ opacity: open ? 1 : 0 }} />
+													<ListItemText
+														primary={child.name}
+														sx={{ opacity: open ? 1 : 0 }}
+														className={classes.itemTextRoot}
+													/>
 												</ListItemButton>
 											</ListItem>
 										))}
@@ -232,34 +244,22 @@ const SideBar = () => {
 						);
 					})}
 				</List>
-				<Divider />
-				<Box
-					className={classes.sidebarFooter}
-					// sx={{
-					// 	position: 'absolute', // Fix it at the bottom
-					// 	bottom: 0, // Align it to the bottom
-					// 	width: '100%', // Make it full width
-					// 	display: 'flex',
-					// 	alignItems: 'center'
-					// }}
-				>
-					<ListItemButton
-						className={classes.listItemRoot}
-						sx={{
-							paddingLeft: open ? '0px' : '10px'
-						}}
-					>
-						<ListItemIcon>
-							<img src={logout} alt="Đăng xuất" />
-						</ListItemIcon>
-						<ListItemText
-							primary="Đăng xuất"
-							sx={{
-								opacity: open ? 1 : 0,
-								'& .MuiTypography-root': { color: ' #E74F39', fontSize: '14px' }
-							}}
-						/>
-					</ListItemButton>
+				<Box>
+					<Box className={classes.sidebarFooter}>
+						<Divider />
+						<ListItemButton className={classes.listItemRoot}>
+							<ListItemIcon>
+								<img src={logout} alt="Đăng xuất" />
+							</ListItemIcon>
+							<ListItemText
+								primary="Đăng xuất"
+								sx={{
+									opacity: open ? 1 : 0,
+									'& .MuiTypography-root': { color: ' #E74F39', fontSize: '14px' }
+								}}
+							/>
+						</ListItemButton>
+					</Box>
 				</Box>
 
 				<IconButton className={classes.iconButtonRoot} onClick={handleDrawer}>

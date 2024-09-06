@@ -9,7 +9,7 @@ export const useStyles = makeStyles(() => ({
 			},
 			'& .MuiListItemIcon-root': {
 				minWidth: 0,
-				margin: '0px 14px 0px 10px',
+				margin: '0px 15px 0px 16px',
 				color: theme.palette.primary.main
 			}
 		}
@@ -17,7 +17,6 @@ export const useStyles = makeStyles(() => ({
 	itemTextRoot: {
 		'& .MuiTypography-root': {
 			fontSize: 14,
-			color: theme.palette.primary.main,
 			fontFamily: 'Inter'
 		}
 	},
@@ -27,8 +26,10 @@ export const useStyles = makeStyles(() => ({
 		alignItems: 'center',
 		position: 'absolute',
 		bottom: 0,
-		right: 0
+		right: 0,
+		width: '100%'
 	},
+
 	iconButtonRoot: {
 		'&.MuiIconButton-root': {
 			position: 'absolute',

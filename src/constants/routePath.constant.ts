@@ -8,19 +8,42 @@ export const ROUTE_PATH = {
 	AUTH: {
 		LOGIN: '/login'
 	},
-	DEVICE: {
-		INDEX: '/devices',
-		LIST: '/devices',
-		DETAIL: '/devices/:id'
-	},
 	DOCUMENT: {
 		INDEX: '/documents',
 		INCOMING: '/documents/incoming',
 		OUTGOING: '/documents/outgoing',
 		INTERNAL: '/documents/internal'
 	},
+	CATEGORY: {
+		INDEX: '/category',
+		DOCUMENT_REGISTRATION: '/category/document-registration',
+		DOCUMENT_TYPE: '/category/document-type',
+		ISSUING_AUTHORITY: '/category/issuing-authority',
+		DEPARTMENT: '/category/department'
+	},
+	CONTACT: {
+		INDEX: '/contact',
+		CONTRACT_LIST: '/contact/contract-list',
+		CONTACT_TEMPLATE: '/contact/contact-template',
+		INFOR_CLIENT: '/contact/infor-client'
+	},
+	PROJECT: {
+		INDEX: '/project',
+		PROJECT_LIST: '/project/project-list'
+	},
+	TASK_MANAGEMENT: {
+		INDEX: '/task-management',
+		APPROVE_DOCUMENTS: '/task-management/approve-documents',
+		UPDATE_PROGRESS: '/task-management/update-progress',
+		REPORT: '/task-management/report',
+		CREATE_TASK: '/task-management/create-task',
+		TASK_LIST: '/task-management/task-list'
+	},
 	PERMISSION: {
-		INDEX: '/permissions'
+		INDEX: '/permissions',
+		ROLE_GROUPS: '/permissions/role-groups',
+		PERMISSION_LIST: '/permissions/permission-list',
+		MEMBER_PERMISSIONS: '/permissions/member-permissions'
 	},
 	PROFILE: {
 		INDEX: '/profile'
