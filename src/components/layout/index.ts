@@ -1,4 +1,3 @@
-// export { default as SignInScreen } from '@/pages/auth/SignInScreen/SignInScreen';
 export { default as SignInScreen } from '@/pages/auth/screens/SignInScreen/SignInScreen';
 export { default as Footer } from '@/components/layout/Footer/Footer.tsx';
 export { default as Sidebar } from '@/components/layout/Sidebar/Sidebar.tsx';

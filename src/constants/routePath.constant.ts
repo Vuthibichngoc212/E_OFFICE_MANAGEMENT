@@ -21,16 +21,6 @@ export const ROUTE_PATH = {
 		ISSUING_AUTHORITY: '/category/issuing-authority',
 		DEPARTMENT: '/category/department'
 	},
-	CONTACT: {
-		INDEX: '/contact',
-		CONTRACT_LIST: '/contact/contract-list',
-		CONTACT_TEMPLATE: '/contact/contact-template',
-		INFOR_CLIENT: '/contact/infor-client'
-	},
-	PROJECT: {
-		INDEX: '/project',
-		PROJECT_LIST: '/project/project-list'
-	},
 	TASK_MANAGEMENT: {
 		INDEX: '/task-management',
 		APPROVE_DOCUMENTS: '/task-management/approve-documents',

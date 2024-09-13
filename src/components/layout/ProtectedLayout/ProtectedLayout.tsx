@@ -2,9 +2,9 @@ import { Navigate, useOutlet } from 'react-router-dom';
 
 import { Box, Stack } from '@mui/material';
 import styles from './layouts.module.css';
-// import Header from '@/components/organisms/Header/Header';
 import { ROUTE_PATH } from '@/constants/routePath.constant';
 import SideBar from '../Sidebar/Sidebar';
+import Header from '../Header/Header';
 
 function ProtectedLayout() {
 	const outlet = useOutlet();
@@ -24,7 +24,7 @@ function ProtectedLayout() {
 					width: '100%'
 				}}
 			>
-				{/* <Header /> */}
+				<Header />
 				<Stack
 					sx={{
 						margin: '4rem 0 0 0',
