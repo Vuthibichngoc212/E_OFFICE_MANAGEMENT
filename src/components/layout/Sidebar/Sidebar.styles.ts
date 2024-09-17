@@ -9,7 +9,7 @@ export const useStyles = makeStyles(() => ({
 			},
 			'& .MuiListItemIcon-root': {
 				minWidth: 0,
-				margin: '0px 15px 0px 16px',
+				margin: '0px 14px 0px 10px',
 				color: theme.palette.primary.main
 			}
 		}
@@ -17,32 +17,30 @@ export const useStyles = makeStyles(() => ({
 	itemTextRoot: {
 		'& .MuiTypography-root': {
 			fontSize: 14,
-			fontFamily: 'Inter'
+			color: theme.palette.base.black,
+			fontFamily: 'Inter',
+			fontWeight: 400
 		}
 	},
-
-	sidebarFooter: {
-		display: 'flex',
-		alignItems: 'center',
-		position: 'absolute',
-		bottom: 0,
-		right: 0,
-		width: '100%'
-	},
-
 	iconButtonRoot: {
 		'&.MuiIconButton-root': {
 			position: 'absolute',
-			width: '3.0rem',
-			height: '3.0rem',
+			width: '2.4rem',
+			height: '2.4rem',
 			backgroundColor: theme.palette.primary.main,
 			color: theme.palette.neutral.main,
-			bottom: '5.5rem',
+			top: '73.9rem',
 			right: 0,
 			transform: 'translateX(50%)',
 			zIndex: 999,
 			'&:hover': {
 				backgroundColor: theme.palette.primary.main
+			},
+			'& .MuiSvgIcon-root': {
+				width: '2rem',
+				height: '2rem',
+				position: 'relative',
+				right: '0.01rem'
 			}
 		}
 	}

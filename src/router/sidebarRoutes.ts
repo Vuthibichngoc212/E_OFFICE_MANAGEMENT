@@ -1,11 +1,12 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { ROUTE_PATH } from '@/constants/routePath.constant';
 
-import overview from '@/assets/icons/overview1.svg?react';
+import overview from '@/assets/icons/overview.svg?react';
 import documentText from '@/assets/icons/DocumentText.svg?react';
 import category from '@/assets/icons/category.svg?react';
 import job from '@/assets/icons/job.svg?react';
 import permission from '@/assets/icons/permission.svg?react';
+import settings from '@/assets/icons/settings.svg?react';
 
 export const sidebarRoutes = [
 	{
@@ -112,10 +113,30 @@ export const sidebarRoutes = [
 		]
 	},
 	{
-		path: ROUTE_PATH.PERMISSION.INDEX,
-		name: 'Permissions Management',
-		label: 'Phân quyền',
+		path: ROUTE_PATH.SYSTEM.INDEX,
+		name: 'System Setting',
+		label: 'Thiết lập hệ thống',
 		icon: permission,
+		children: [
+			{
+				path: ROUTE_PATH.SYSTEM.ACCOUNTS,
+				name: 'Account Management',
+				label: 'Tài khoản',
+				icon: null
+			},
+			{
+				path: ROUTE_PATH.SYSTEM.PERMISSIONS,
+				name: 'Permissions',
+				label: 'Phân quyền',
+				icon: null
+			}
+		]
+	},
+	{
+		path: ROUTE_PATH.SETTING.INDEX,
+		name: 'Settings',
+		label: 'Cài đặt',
+		icon: settings,
 		children: []
 	}
 ];

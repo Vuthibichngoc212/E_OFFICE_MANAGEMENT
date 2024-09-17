@@ -7,7 +7,6 @@ import DocumentType from '@/pages/categories/documentType/screens/DocumentType';
 
 const routes: RouteObject[] = [
 	{
-		// path: ROUTE_PATH.AUTH.LOGIN,
 		path: ROUTE_PATH.ROOT.INDEX,
 		element: <SignInScreen />
 	},
