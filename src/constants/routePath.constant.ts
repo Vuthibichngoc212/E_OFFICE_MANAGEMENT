@@ -29,11 +29,10 @@ export const ROUTE_PATH = {
 		CREATE_TASK: '/task-management/create-task',
 		TASK_LIST: '/task-management/task-list'
 	},
-	PERMISSION: {
-		INDEX: '/permissions',
-		ROLE_GROUPS: '/permissions/role-groups',
-		PERMISSION_LIST: '/permissions/permission-list',
-		MEMBER_PERMISSIONS: '/permissions/member-permissions'
+	SYSTEM: {
+		INDEX: '/system',
+		ACCOUNTS: '/system/accounts',
+		PERMISSIONS: '/system/permissions'
 	},
 	PROFILE: {
 		INDEX: '/profile'
