@@ -21,13 +21,11 @@ export const ROUTE_PATH = {
 		ISSUING_AUTHORITY: '/category/issuing-authority',
 		DEPARTMENT: '/category/department'
 	},
-	TASK_MANAGEMENT: {
-		INDEX: '/task-management',
-		APPROVE_DOCUMENTS: '/task-management/approve-documents',
-		UPDATE_PROGRESS: '/task-management/update-progress',
-		REPORT: '/task-management/report',
-		CREATE_TASK: '/task-management/create-task',
-		TASK_LIST: '/task-management/task-list'
+	PROCESS: {
+		INDEX: '/process'
+	},
+	SCHEDULE: {
+		INDEX: '/schedule'
 	},
 	SYSTEM: {
 		INDEX: '/system',

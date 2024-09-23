@@ -1,15 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { DocumentTypeList } from '@/types/categories';
+import { ActionPayload } from '@/types/index.types';
+// import { DocumentTypeList } from '@/types/categories';
 // import { CategoryList } from '@/types/categories';
 
 export interface categoryInitialState {
 	loading: boolean;
-	document_types: DocumentTypeList[] | null;
+	// document_types: DocumentTypeList[] | null;
+	document_types: any;
 }
 const initialState: categoryInitialState = {
 	loading: false,
-	document_types: null
+	document_types: []
 };
 
 const categoriesSlice = createSlice({
@@ -20,9 +24,11 @@ const categoriesSlice = createSlice({
 			state.loading = true;
 		},
 
+		fetchCreateDocumentType(state, _: PayloadAction<ActionPayload<FormData>>) {},
+
 		//
-		fetchGetDocumentTypeSuccess(state, action) {
-			state.document_types = action.payload;
+		fetchGetDocumentTypeSuccess(state, action: PayloadAction<any>) {
+			state.document_types = action.payload.data;
 			state.loading = false;
 		},
 
@@ -41,5 +47,4 @@ export const selectCompanies = (state: RootState) => state.categories.document_t
 
 // Reducer
 const categoriesReducer = categoriesSlice.reducer;
-
 export default categoriesReducer;
