@@ -4,7 +4,8 @@ import { ROUTE_PATH } from '@/constants/routePath.constant';
 import overview from '@/assets/icons/overview.svg?react';
 import documentText from '@/assets/icons/DocumentText.svg?react';
 import category from '@/assets/icons/category.svg?react';
-import job from '@/assets/icons/job.svg?react';
+import schedule from '@/assets/icons/schedule.svg?react';
+import process from '@/assets/icons/process.svg?react';
 import permission from '@/assets/icons/permission.svg?react';
 import settings from '@/assets/icons/settings.svg?react';
 
@@ -75,42 +76,18 @@ export const sidebarRoutes = [
 		]
 	},
 	{
-		path: ROUTE_PATH.TASK_MANAGEMENT.INDEX,
-		name: 'Task Management',
-		label: 'Quản lý công việc',
-		icon: job,
-		children: [
-			{
-				path: ROUTE_PATH.TASK_MANAGEMENT.APPROVE_DOCUMENTS,
-				name: 'Document Approval',
-				label: 'Phê duyệt hồ sơ văn bản',
-				icon: null
-			},
-			{
-				path: ROUTE_PATH.TASK_MANAGEMENT.UPDATE_PROGRESS,
-				name: 'Progress Update',
-				label: 'Cập nhật tiến độ xử lý',
-				icon: null
-			},
-			{
-				path: ROUTE_PATH.TASK_MANAGEMENT.REPORT,
-				name: 'Work Reporting',
-				label: 'Báo cáo công việc',
-				icon: null
-			},
-			{
-				path: ROUTE_PATH.TASK_MANAGEMENT.CREATE_TASK,
-				name: 'Task Creation',
-				label: 'Tạo công việc',
-				icon: null
-			},
-			{
-				path: ROUTE_PATH.TASK_MANAGEMENT.TASK_LIST,
-				name: 'Task Listing',
-				label: 'Danh sách công việc',
-				icon: null
-			}
-		]
+		path: ROUTE_PATH.PROCESS.INDEX,
+		name: 'process',
+		label: 'Quản lý quy trình',
+		icon: process,
+		children: []
+	},
+	{
+		path: ROUTE_PATH.SCHEDULE.INDEX,
+		name: 'schedule',
+		label: 'Quản lý lịch họp',
+		icon: schedule,
+		children: []
 	},
 	{
 		path: ROUTE_PATH.SYSTEM.INDEX,
