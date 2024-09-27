@@ -1,85 +1,63 @@
-import theme from '@/themes/theme.d';
 import { makeStyles } from '@mui/styles';
+import { alpha } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles({
-	root: {
-		'&.MuiPaper-root': {
-			backgroundColor: '#fff',
-			marginLeft: '2.4rem',
-			borderBottomLeftRadius: '12px',
-			boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.05)'
-		},
-		'&.MuiStack-root': {
-			width: '100%'
-		},
-		flexShrink: 0,
-		flexDirection: 'row'
+const useStyles = makeStyles<Theme>((theme) => ({
+	typography: {
+		flexGrow: 1,
+		color: '#1C2A4F',
+		'&.MuiTypography-root': {
+			fontWeight: 'bold',
+			fontSize: '24px'
+		}
 	},
-	container: {
+	search: {
+		position: 'relative',
+		borderRadius: theme.shape.borderRadius,
+		backgroundColor: alpha(theme.palette.common.white, 0.15),
+		'&:hover': {
+			backgroundColor: alpha(theme.palette.common.white, 0.25)
+		},
+		marginLeft: 0,
+		[theme.breakpoints.up('sm')]: {
+			width: 'auto'
+		}
+	},
+	searchIconWrapper: {
+		padding: theme.spacing(0, 2),
+		height: '100%',
+		position: 'absolute',
+		pointerEvents: 'none',
 		display: 'flex',
-		justifyContent: 'space-between',
 		alignItems: 'center',
-		padding: '1.6rem 2.4rem'
+		justifyContent: 'center'
 	},
-
-	userMenu: {
-		marginTop: '45px'
-	},
-	title: {
-		'&.MuiTypography-root': {
-			fontFamily: 'Inter-Bold',
-			fontSize: 24,
-			lineHeight: '2.8rem',
-			marginBottom: '0.6rem',
-			color: '#f26526'
+	inputBase: {
+		height: '44px',
+		borderRadius: '20px',
+		border: '1px solid #DADADD',
+		color: '#92939E',
+		paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+		transition: theme.transitions.create('width'),
+		width: '100%',
+		[theme.breakpoints.up('md')]: {
+			width: '356px'
+		},
+		'& .MuiInputBase-input': {
+			fontSize: '12px'
 		}
 	},
-	menuItemText: {
-		'&.MuiTypography-root': {
-			color: theme.palette.neutral.black
-		}
+	iconButton: {
+		color: 'inherit'
 	},
-	BreadcrumbsText: {
-		'&.MuiTypography-root': {
-			// color: theme.palette.neutral.darkGray
-		}
+	userBox: {
+		display: 'flex',
+		alignItems: 'center',
+		marginLeft: theme.spacing(2)
 	},
-
-	link: {
-		'&.MuiTypography-root': {
-			color: '#223671'
-		}
-	},
-	space: {
-		'&.MuiTypography-root': {
-			color: '#223671',
-			margin: '0 0.8rem'
-		}
-	},
-	userName: {
-		'&.MuiTypography-root MuiSvgIcon-root': {
-			color: theme.palette.neutral.black,
-			cursor: 'pointer'
-		}
-	},
-
-	userStack: {
-		'&.MuiBox-root': {
-			cursor: 'pointer',
-			color: theme.palette.neutral.black,
-			paddingRight: '2.4rem'
-		}
-	},
-	menuItem: {
-		'&.MuiTypography-root': {
-			color: '#98989A'
-		}
-	},
-	menuItemIcon: {
-		'& .MuiSvgIcon-root': {
-			color: theme.palette.neutral.black
-		}
+	userText: {
+		color: '#1C2A4F'
 	}
-});
+}));
 
 export default useStyles;

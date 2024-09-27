@@ -27,7 +27,7 @@ function ProtectedLayout() {
 				<Header />
 				<Stack
 					sx={{
-						margin: '4rem 0 0 0',
+						margin: '2.4rem 0 0 0',
 						padding: '0 2.4rem'
 					}}
 				>

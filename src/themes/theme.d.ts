@@ -165,6 +165,7 @@ declare module '@mui/material/styles' {
 		black?: string;
 		lightSkyBlue?: string;
 		babyBlue?: string;
+		babyOrange?: string;
 		lightCornflowerBlue?: string;
 		lightBlueSky?: string;
 		mediumSkyBlue?: string;
@@ -235,6 +236,7 @@ declare module '@mui/material/styles' {
 		black?: string;
 		lightSkyBlue?: string;
 		babyBlue?: string;
+		babyOrange?: string;
 		lightCornflowerBlue?: string;
 		lightBlueSky?: string;
 		mediumSkyBlue?: string;
@@ -577,6 +579,7 @@ let theme = createTheme({
 			main: '#213970',
 			lightSkyBlue: '#F0F7FE',
 			babyBlue: '#DEEBFB',
+			babyOrange: '#FEF6EE',
 			lightCornflowerBlue: '#C4DEF9',
 			lightBlueSky: '#9BC9F5',
 			mediumSkyBlue: '#6CACEE',

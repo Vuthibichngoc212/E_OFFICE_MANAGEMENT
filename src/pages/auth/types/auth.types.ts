@@ -2,6 +2,11 @@ export type LoginRequestBody = {
 	password: string;
 	email: string;
 };
-export type LoginRequest = {
-	data: LoginRequestBody;
+
+//get
+export type GetLoginListResponse = {
+	data: LoginRequestBody[];
+	error_code: string | null;
+	message: string | null;
+	success: boolean | null;
 };

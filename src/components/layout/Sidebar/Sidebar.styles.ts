@@ -5,7 +5,7 @@ export const useStyles = makeStyles(() => ({
 	listItemRoot: {
 		'&.MuiButtonBase-root': {
 			'&.MuiListItemButton-root:hover': {
-				borderRadius: '0.8rem'
+				borderRadius: '40px'
 			},
 			'& .MuiListItemIcon-root': {
 				minWidth: 0,
@@ -17,7 +17,7 @@ export const useStyles = makeStyles(() => ({
 	itemTextRoot: {
 		'& .MuiTypography-root': {
 			fontSize: 14,
-			color: theme.palette.base.black,
+			color: theme.palette.primary.main,
 			fontFamily: 'Inter',
 			fontWeight: 400
 		}

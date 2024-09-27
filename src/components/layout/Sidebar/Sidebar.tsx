@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -19,8 +19,9 @@ import { useLocation } from 'react-router-dom';
 import useCommonStore from '@/stores/common.stores';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useRouter from '@/router/routerHook';
+import iconLogout from '@/assets/icons/logout.svg';
 
-const drawerWidth = 267;
+const drawerWidth = 260;
 const openedMixin = (theme: Theme): CSSObject => ({
 	width: drawerWidth,
 	transition: theme.transitions.create('width', {
@@ -164,7 +165,7 @@ const SideBar = () => {
 							boxShadow:
 								'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
 							border: 'none',
-							padding: isOpenSidebar ? '0rem 2.4rem 0 1.6rem' : 0,
+							padding: isOpenSidebar ? '0rem 2.4rem ' : 0,
 							'& > div:first-of-type': {
 								display: 'flex',
 								justifyContent: 'center !important',
@@ -219,7 +220,7 @@ const SideBar = () => {
 														padding: '0.8rem 0.8rem 0.8rem 1.1rem',
 														'&:hover': {
 															backgroundColor: 'rgba(0, 0, 0, 0.04)',
-															borderRadius: '0.8rem'
+															borderRadius: '40px'
 														},
 														'& .MuiAccordionSummary-content': {
 															margin: 0
@@ -286,7 +287,7 @@ const SideBar = () => {
 																sx={{
 																	display: 'block',
 																	padding: '0.8rem  0.8rem 0.8rem 4.5rem',
-																	borderRadius: '0.8rem',
+																	borderRadius: '40px',
 																	backgroundColor:
 																		activeRoute?.childrenPath === secondaryLevelItem.path
 																			? theme.palette.primary.main
@@ -310,7 +311,7 @@ const SideBar = () => {
 																		left: 19,
 																		width: '0.2rem',
 																		height: '1.8rem',
-																		borderRadius: '0.8rem',
+																		borderRadius: '40px',
 																		backgroundColor:
 																			activeRoute?.childrenPath === secondaryLevelItem.path
 																				? theme.palette.base.main
@@ -347,7 +348,7 @@ const SideBar = () => {
 													? {
 															backgroundColor: theme.palette.primary.main,
 															color: theme.palette.base.main,
-															borderRadius: '0.8rem',
+															borderRadius: '40px',
 															'& .MuiButtonBase-root': {
 																'& .MuiListItemIcon-root': {
 																	color: theme.palette.base.main
@@ -395,7 +396,34 @@ const SideBar = () => {
 							);
 						})}
 				</List>
+				<Divider
+					sx={{ display: 'flex', position: 'absolute', bottom: 56, right: 0, width: '100%' }}
+				/>
+				<Box
+					sx={{
+						display: 'flex',
+						position: 'absolute',
+						bottom: 0,
+						right: 0,
+						width: '100%',
+						padding: '1.8rem 2.4rem '
+					}}
+				>
+					<img src={iconLogout} alt="iconLogout" />
+					<Typography
+						sx={{
+							color: '#E74F39',
+							fontSize: '14px',
+							lineHeight: '20px',
+							marginLeft: '13px',
+							alignContent: 'center'
+						}}
+					>
+						Đăng xuất
+					</Typography>
+				</Box>
 			</Drawer>
+
 			<IconButton
 				sx={{
 					'&.MuiIconButton-root': {

@@ -19,6 +19,10 @@ export const API_STATUS_CODES = {
 	serviceTemporarilyUnavailable: 503
 };
 
+const ACCESS_TOKEN_KEY = 'access_token';
+const REFRESH_TOKEN_KEY = 'refresh_token';
+const USER_ID = 'user_id';
+
 export const REQUEST_HEADERS = {
 	defaultHeader: {
 		'Content-Type': 'application/json; charset=UTF-8',
@@ -42,3 +46,13 @@ export const REQUEST_HEADERS = {
 		'X-Timezone': systemTimezone
 	})
 };
+
+const API_CONSTANTS = {
+	API_STATUS_CODES,
+	ACCESS_TOKEN_KEY,
+	REFRESH_TOKEN_KEY,
+	USER_ID,
+	REQUEST_HEADERS
+};
+
+export default API_CONSTANTS;
