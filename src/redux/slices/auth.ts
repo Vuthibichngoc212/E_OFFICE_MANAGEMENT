@@ -1,27 +1,42 @@
-import { ActionPayloadMeta } from '@/types/index.types';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthState } from '@/redux/types/auth.types.ts';
+import { RootState } from '../store';
+import { GetLoginListResponse, LoginRequestBody } from '@/pages/auth/types/auth.types';
 
-const initialState: AuthState = {
-	accessToken: undefined,
-	refreshToken: undefined,
-	isLoggingIn: false,
-	errorCode: undefined
+export interface categoryInitialState {
+	loading: boolean;
+	isLoggingIn: any;
+}
+
+const initialState: categoryInitialState = {
+	loading: false,
+	isLoggingIn: []
 };
 
-const slice = createSlice({
-	name: 'auth',
+const loginSlice = createSlice({
+	name: 'login',
 	initialState,
 	reducers: {
-		checkSSOSuccess: (
-			state,
-			payload: PayloadAction<{ accessToken: string; meta?: ActionPayloadMeta }>
-		) => {
-			console.log(payload);
-			console.log(state);
+		fetchLoginRequest(state, _: PayloadAction<LoginRequestBody>) {
+			state.loading = true;
+		},
+		fetchLoginSuccess(state, action: PayloadAction<GetLoginListResponse>) {
+			state.isLoggingIn = action.payload.data;
+			state.loading = false;
+		},
+		fetchLoginFailure(state) {
+			state.isLoggingIn = [];
+			state.loading = false;
 		}
 	}
 });
 
-export const { checkSSOSuccess } = slice.actions;
-export default slice.reducer;
+// Actions
+export const loginActions = loginSlice.actions;
+// Selectors
+export const selectLogin = (state: RootState) => state.auth.isLoggingIn;
+
+// Reducer
+const loginReducer = loginSlice.reducer;
+export default loginReducer;

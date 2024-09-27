@@ -2,7 +2,7 @@
 import { ROUTE_PATH } from '@/constants/routePath.constant';
 
 import overview from '@/assets/icons/overview.svg?react';
-import documentText from '@/assets/icons/DocumentText.svg?react';
+import documentText from '@/assets/icons/documentText.svg?react';
 import category from '@/assets/icons/category.svg?react';
 import schedule from '@/assets/icons/schedule.svg?react';
 import process from '@/assets/icons/process.svg?react';

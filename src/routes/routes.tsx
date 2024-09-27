@@ -4,6 +4,7 @@ import ProtectedLayout from '@/components/layout/ProtectedLayout/ProtectedLayout
 import { ROUTE_PATH } from '@/constants/routePath.constant';
 import { Home } from '@/pages/Home';
 import DocumentType from '@/pages/categories/documentType/screens/DocumentType';
+import Departmenst from '@/pages/categories/department/screens/Departmenst';
 
 const routes: RouteObject[] = [
 	{
@@ -27,6 +28,16 @@ const routes: RouteObject[] = [
 			{
 				path: ROUTE_PATH.CATEGORY.DOCUMENT_TYPE,
 				element: <DocumentType />
+			}
+		]
+	},
+	{
+		path: ROUTE_PATH.CATEGORY.INDEX,
+		element: <ProtectedLayout />,
+		children: [
+			{
+				path: ROUTE_PATH.CATEGORY.DEPARTMENT,
+				element: <Departmenst />
 			}
 		]
 	},
