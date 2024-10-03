@@ -1,5 +1,5 @@
 import { Box, Typography, Avatar } from '@mui/material';
-import baner from '@/assets/images/banner.svg';
+import baner from '@/assets/images/image.png';
 import notiAvatar from '@/assets/icons/Avatar.svg';
 
 const statusData = [
@@ -83,7 +83,18 @@ const meetings = [
 const Home = () => {
 	return (
 		<Box>
-			<img src={baner} alt="baner" style={{ width: '100%', height: 'auto' }} />
+			<Box
+				sx={{
+					width: '97w',
+					height: '340px',
+					'& img': {
+						width: '100%',
+						height: '100%'
+					}
+				}}
+			>
+				<img src={baner} alt="baner" />
+			</Box>
 			<Box display="flex" justifyContent="space-between" mt={2}>
 				{statusData.map((status, index) => (
 					<Box

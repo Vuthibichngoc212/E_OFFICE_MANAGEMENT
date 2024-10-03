@@ -1,13 +1,13 @@
-import CRUDModal from '@/components/common/Modal/CRUDModal/CRUDModal';
-import { Box } from '@mui/material';
-import { FormProvider, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import CustomTextField from '@/components/common/FormElements/CustomTextField/CustomTextField';
+import CRUDModal from '@/components/common/Modal/CRUDModal/CRUDModal';
 import { useAppDispatch } from '@/redux/hook';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box } from '@mui/material';
+import React, { useEffect } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { issuersSchema } from '../helpers/validation-schema.helpers';
 import { categoriesActions } from '@/redux/slices/categories';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
-import { departmentsSchema } from '../helpers/validation-schema.helpers';
 
 const FormModal = ({
 	isOpenModal,
@@ -20,7 +20,7 @@ const FormModal = ({
 }: any) => {
 	const dispatch = useAppDispatch();
 	const methods = useForm({
-		resolver: yupResolver(departmentsSchema)
+		resolver: yupResolver(issuersSchema)
 	});
 
 	useEffect(() => {
@@ -36,29 +36,33 @@ const FormModal = ({
 		}
 		methods.reset({
 			name: '',
-			parent_department_id: undefined
+			code: '',
+			abbreviation: '',
+			description: ''
 		});
 	}, [editRole, isOpenModal, methods]);
 
 	const handleSubmitForm = (data: any) => {
 		const payload: any = {
 			name: data.name,
-			parent_department_id: data.parent_department_id
+			code: data.code,
+			abbreviation: data.abbreviation,
+			description: data.description
 		};
 
 		if (editRole) {
 			payload.id = editRole.id;
 			dispatch(
-				categoriesActions.fetchUpdateDepartments({
+				categoriesActions.fetchUpdateIssuers({
 					data: payload,
 					meta: {
 						onSuccess: () => {
 							setIsOpenModal(false);
-							toast.success('Cập nhật phòng ban thành công!', { autoClose: 2000 });
-							dispatch(categoriesActions.fetchGetDepartments());
+							toast.success('Cập nhật nơi ban hành thành công!', { autoClose: 2000 });
+							dispatch(categoriesActions.fetchGetIssuers());
 						},
 						onError: () => {
-							toast.error('Cập nhật phòng ban thất bại!', { autoClose: 2000 });
+							toast.error('Cập nhật nơi ban hành thất bại!', { autoClose: 2000 });
 						}
 					}
 				})
@@ -67,16 +71,16 @@ const FormModal = ({
 		}
 
 		dispatch(
-			categoriesActions.fetchCreateDepartments({
+			categoriesActions.fetchCreateIssuers({
 				data: payload,
 				meta: {
 					onSuccess: () => {
 						setIsOpenModal(false);
-						toast.success('Thêm phòng ban thành công!', { autoClose: 2000 });
-						dispatch(categoriesActions.fetchGetDepartments());
+						toast.success('Thêm nơi ban hành thành công!', { autoClose: 2000 });
+						dispatch(categoriesActions.fetchGetIssuers());
 					},
 					onError: () => {
-						toast.error('Thêm phòng ban thất bại!', { autoClose: 2000 });
+						toast.error('Thêm nơi ban hành thất bại!', { autoClose: 2000 });
 					}
 				}
 			})
@@ -94,13 +98,20 @@ const FormModal = ({
 		>
 			<FormProvider {...methods}>
 				<Box sx={{ width: '60rem' }}>
-					<CustomTextField label="Tên phòng ban" name="name" control={methods.control} required />
 					<CustomTextField
-						label="parent_department_id"
-						name="parent_department_id"
+						label="Tên nơi ban hành"
+						name="name"
 						control={methods.control}
 						required
 					/>
+					<CustomTextField label="Mã nơi ban hành" name="code" control={methods.control} required />
+					<CustomTextField
+						label="Tên viết tắt"
+						name="abbreviation"
+						control={methods.control}
+						required
+					/>
+					<CustomTextField label="Mô tả" name="description" control={methods.control} required />
 				</Box>
 			</FormProvider>
 		</CRUDModal>

@@ -5,6 +5,8 @@ import { ROUTE_PATH } from '@/constants/routePath.constant';
 import { Home } from '@/pages/Home';
 import DocumentType from '@/pages/categories/documentType/screens/DocumentType';
 import Departmenst from '@/pages/categories/department/screens/Departmenst';
+import Issuers from '@/pages/categories/issuers/screens/Issuers';
+import Projects from '@/pages/categories/projects/screens/Projects';
 
 const routes: RouteObject[] = [
 	{
@@ -26,8 +28,28 @@ const routes: RouteObject[] = [
 		element: <ProtectedLayout />,
 		children: [
 			{
+				path: ROUTE_PATH.CATEGORY.PROJECTS,
+				element: <Projects />
+			}
+		]
+	},
+	{
+		path: ROUTE_PATH.CATEGORY.INDEX,
+		element: <ProtectedLayout />,
+		children: [
+			{
 				path: ROUTE_PATH.CATEGORY.DOCUMENT_TYPE,
 				element: <DocumentType />
+			}
+		]
+	},
+	{
+		path: ROUTE_PATH.CATEGORY.INDEX,
+		element: <ProtectedLayout />,
+		children: [
+			{
+				path: ROUTE_PATH.CATEGORY.ISSUING_AUTHORITY,
+				element: <Issuers />
 			}
 		]
 	},

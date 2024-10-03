@@ -2,7 +2,7 @@
 import { ROUTE_PATH } from '@/constants/routePath.constant';
 
 import overview from '@/assets/icons/overview.svg?react';
-import documentText from '@/assets/icons/documentText.svg?react';
+import documentText from '@/assets/icons/DocumentText.svg?react';
 import category from '@/assets/icons/category.svg?react';
 import schedule from '@/assets/icons/schedule.svg?react';
 import process from '@/assets/icons/process.svg?react';
@@ -52,25 +52,31 @@ export const sidebarRoutes = [
 			{
 				path: ROUTE_PATH.CATEGORY.DOCUMENT_REGISTRATION,
 				name: 'Document Registration',
-				label: 'Danh sách sổ đăng ký văn bản',
+				label: 'Sổ đăng ký văn bản',
+				icon: null
+			},
+			{
+				path: ROUTE_PATH.CATEGORY.PROJECTS,
+				name: 'Projects List',
+				label: 'Dự án',
 				icon: null
 			},
 			{
 				path: ROUTE_PATH.CATEGORY.DOCUMENT_TYPE,
 				name: 'Document Type List',
-				label: 'Danh sách loại văn bản',
+				label: 'Loại văn bản',
 				icon: null
 			},
 			{
 				path: ROUTE_PATH.CATEGORY.ISSUING_AUTHORITY,
 				name: 'Issuing Authority List',
-				label: 'Danh sách nơi ban hành',
+				label: 'Nơi ban hành',
 				icon: null
 			},
 			{
 				path: ROUTE_PATH.CATEGORY.DEPARTMENT,
 				name: 'Department List',
-				label: 'Danh sách phòng ban',
+				label: 'Phòng ban',
 				icon: null
 			}
 		]

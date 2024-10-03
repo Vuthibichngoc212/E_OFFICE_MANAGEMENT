@@ -17,6 +17,7 @@ export const ROUTE_PATH = {
 	CATEGORY: {
 		INDEX: '/category',
 		DOCUMENT_REGISTRATION: '/category/document-registration',
+		PROJECTS: '/category/projects',
 		DOCUMENT_TYPE: '/category/document-type',
 		ISSUING_AUTHORITY: '/category/issuing-authority',
 		DEPARTMENT: '/category/department'

@@ -196,6 +196,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.25.6":
+  version "7.25.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.25.6.tgz#9afc3289f7184d8d7f98b099884c26317b9264d2"
+  integrity sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3":
   version "7.25.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.25.4.tgz#6ef37d678428306e7d75f054d5b1bdb8cf8aa8ee"
@@ -745,6 +752,27 @@
     prop-types "^15.8.1"
     react-is "^18.3.1"
 
+"@mui/x-date-pickers@^7.18.0":
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers/-/x-date-pickers-7.18.0.tgz#264158195aeeaf32a00519718f6c67c165b06711"
+  integrity sha512-12tXIoMj9vpS8fS/bS3kWPCoVrH38vNGCxgplI0vOnUrN9rJuYJz3agLPJe1S0xciTw+9W8ZSe3soaW+owoz1Q==
+  dependencies:
+    "@babel/runtime" "^7.25.6"
+    "@mui/utils" "^5.16.6"
+    "@mui/x-internals" "7.18.0"
+    "@types/react-transition-group" "^4.4.11"
+    clsx "^2.1.1"
+    prop-types "^15.8.1"
+    react-transition-group "^4.4.5"
+
+"@mui/x-internals@7.18.0":
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-internals/-/x-internals-7.18.0.tgz#f079968d4f7ea93e63be9faf6ba8558d6f12923b"
+  integrity sha512-lzCHOWIR0cAIY1bGrWSprYerahbnH5C31ql/2OWCEjcngL2NAV1M6oKI2Vp4HheqzJ822c60UyWyapvyjSzY/A==
+  dependencies:
+    "@babel/runtime" "^7.25.6"
+    "@mui/utils" "^5.16.6"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -1228,6 +1256,13 @@
   version "4.4.10"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.10.tgz#6ee71127bdab1f18f11ad8fb3322c6da27c327ac"
   integrity sha512-hT/+s0VQs2ojCX823m60m5f0sL5idt9SO6Tj6Dg+rdphGPIeJbJ6CxvBYkgkGKrYeDjvIpKTR38UzmtHJOGW3Q==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-transition-group@^4.4.11":
+  version "4.4.11"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.11.tgz#d963253a611d757de01ebb241143b1017d5d63d5"
+  integrity sha512-RM05tAniPZ5DZPzzNFP+DmrcOdD0efDUxMy3145oljWSl3x9ZV5vhme98gTxFrj2lhXvmGNnUiuDyJgY9IKkNA==
   dependencies:
     "@types/react" "*"
 

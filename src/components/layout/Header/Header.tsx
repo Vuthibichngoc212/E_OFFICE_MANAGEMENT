@@ -1,6 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, InputBase, Typography, Box } from '@mui/material';
-import searchIcon from '@/assets/icons/search-icon.svg';
+import { AppBar, Toolbar, IconButton, Typography, Box } from '@mui/material';
 import notiIcon from '@/assets/icons/noti-icon.svg';
 import avatarIcon from '@/assets/icons/Avatar.svg';
 import useStyles from './Header.styles';
@@ -18,16 +17,7 @@ const Header: React.FC = () => {
 				<Typography variant="h4" noWrap className={classes.typography}>
 					Dashboard
 				</Typography>
-				<div className={classes.search}>
-					<div className={classes.searchIconWrapper}>
-						<img src={searchIcon} alt="search" />
-					</div>
-					<InputBase
-						placeholder="Tìm kiếm"
-						inputProps={{ 'aria-label': 'search' }}
-						className={classes.inputBase}
-					/>
-				</div>
+
 				<IconButton size="large" aria-label="show notifications" className={classes.iconButton}>
 					<img src={notiIcon} alt="notifications" />
 				</IconButton>

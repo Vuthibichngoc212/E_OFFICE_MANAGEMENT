@@ -55,7 +55,7 @@ const FormModal = ({
 						onSuccess: () => {
 							setIsOpenModal(false);
 							toast.success('Cập nhật loại văn bản thành công!', { autoClose: 2000 });
-							dispatch(categoriesActions.fetchGetDocumentType());
+							dispatch(categoriesActions.fetchGetDocumentType({ page, pageSize }));
 						},
 						onError: () => {
 							toast.error('Cập nhật loại văn bản thất bại!', { autoClose: 2000 });
@@ -73,7 +73,7 @@ const FormModal = ({
 					onSuccess: () => {
 						setIsOpenModal(false);
 						toast.success('Thêm loại văn bản thành công!', { autoClose: 2000 });
-						dispatch(categoriesActions.fetchGetDocumentType());
+						dispatch(categoriesActions.fetchGetDocumentType({ page, pageSize }));
 					},
 					onError: () => {
 						toast.error('Thêm loại văn bản thất bại!', { autoClose: 2000 });

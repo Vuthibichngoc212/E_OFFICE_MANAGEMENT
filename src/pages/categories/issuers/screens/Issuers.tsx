@@ -1,25 +1,27 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useDispatch, useSelector } from 'react-redux';
-import { useStyles } from './Departmenst.styles';
-import { categoriesActions, selectDepartmenst } from '@/redux/slices/categories';
-import { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
 import { Box, Typography } from '@mui/material';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import theme from '@/themes/theme.d';
+import { useStyles } from './Issuers.styles';
 import DataTable from '@/components/common/DataTable/DataTable';
+import { useAppDispatch } from '@/redux/hook';
+import { useSelector } from 'react-redux';
+import { categoriesActions, selectIssuers } from '@/redux/slices/categories';
+import { useEffect } from 'react';
 import FormModal from '../components/FormModal/FormModal';
 import DeletePopUp from '@/components/common/DeletePopUp/DeletePopUp';
 import { toast } from 'react-toastify';
 
-const Departmenst = () => {
+const Issuers = () => {
 	const classes = useStyles();
-	const dispatch = useDispatch();
-	const departments = useSelector(selectDepartmenst);
+	const dispatch = useAppDispatch();
+	const issuers = useSelector(selectIssuers);
 	const loading = useSelector((state: any) => state.categories.loading);
 
 	useEffect(() => {
-		dispatch(categoriesActions.fetchGetDepartments());
+		dispatch(categoriesActions.fetchGetIssuers());
 	}, [dispatch]);
 
 	const operationColumns = [
@@ -30,8 +32,10 @@ const Departmenst = () => {
 			width: 60,
 			render: (_: any, index: any) => <Typography>{index + 1}</Typography>
 		},
-		{ name: 'name', title: 'Tên phòng ban', align: 'left', width: 140 },
-		{ name: 'parent_department_id', title: 'parent_department_id', align: 'left', width: 240 },
+		{ name: 'name', title: 'Tên nơi ban hành', align: 'left', width: 140 },
+		{ name: 'code', title: 'Mã nơi ban hành', align: 'left', width: 240 },
+		{ name: 'abbreviation', title: 'Tên viết tắt', align: 'left', width: 240 },
+		{ name: 'description', title: 'Mô tả', align: 'left', width: 240 },
 		{
 			name: 'action',
 			title: 'Thao tác',
@@ -70,7 +74,7 @@ const Departmenst = () => {
 				}}
 			>
 				<DataTable
-					data={departments || []}
+					data={issuers || []}
 					columns={operationColumns}
 					customTableStyles={{
 						height: '90%'
@@ -82,7 +86,7 @@ const Departmenst = () => {
 						},
 						addButton: {
 							isShow: true,
-							title: 'Thêm phòng ban'
+							title: 'Thêm nơi ban hành'
 						},
 						modals: {
 							impactFormModal: {
@@ -101,15 +105,15 @@ const Departmenst = () => {
 								DeleteModalComponent: DeletePopUp,
 								action: (id: any) => {
 									dispatch(
-										categoriesActions.fetchDeleteDepartments({
+										categoriesActions.fetchDeleteIssuers({
 											data: { id },
 											meta: {
 												onSuccess: () => {
-													toast.success('Xoá phòng ban thành công!', { autoClose: 2000 });
-													dispatch(categoriesActions.fetchGetDepartments());
+													toast.success('Xoá nơi ban hành thành công!', { autoClose: 2000 });
+													dispatch(categoriesActions.fetchGetIssuers());
 												},
 												onError: () => {
-													toast.error('Xoá phòng ban thất bại!', { autoClose: 2000 });
+													toast.error('Xoá nơi ban hành thất bại!', { autoClose: 2000 });
 												}
 											}
 										})
@@ -126,4 +130,4 @@ const Departmenst = () => {
 	);
 };
 
-export default Departmenst;
+export default Issuers;

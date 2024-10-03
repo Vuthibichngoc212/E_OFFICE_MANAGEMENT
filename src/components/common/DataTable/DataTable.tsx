@@ -12,10 +12,9 @@ import {
 	TextField,
 	Typography
 } from '@mui/material';
-import SearchIcon from '@/assets/icons/search.svg?react';
+import SearchIcon from '@/assets/icons/search-icon.svg?react';
 import theme from '@/themes/theme.d';
 import { useMemo, useState } from 'react';
-// import FilterInfoIcon from '@/assets/icons/filter-info.svg?react';
 import AddIcon from '@mui/icons-material/Add';
 import noData from '@/assets/images/no-data.png';
 import { ControlType } from '@/types/index.types';
@@ -112,43 +111,47 @@ const DataTable: React.FC<DataTableProps> = ({
 						justifyContent: 'space-between'
 					}}
 				>
-					<Box>
+					<Box sx={{ position: 'relative' }}>
 						{options?.search && options.search.isShow && (
-							<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-								<TextField
-									variant="outlined"
-									value={options.search.filters}
-									onChange={(e) =>
-										options.search.stateAction((prev: any) => ({ ...prev, cccd_1: e.target.value }))
-									}
-									// onKeyDown={handleKeyDown}
-									sx={{
-										width: '38rem',
-										height: '4.6rem',
-										borderRadius: '0.8rem',
-										'& .MuiOutlinedInput-root': {
+							<TextField
+								variant="outlined"
+								value={options.search.filters}
+								onChange={(e) =>
+									options.search.stateAction((prev: any) => ({ ...prev, cccd_1: e.target.value }))
+								}
+								sx={{
+									width: '38rem',
+									height: '4.4rem',
+									borderRadius: '0.8rem',
+									'& .MuiOutlinedInput-root': {
+										height: '100%',
+										borderRadius: '2.4rem',
+										'& .MuiInputBase-input': {
 											height: '100%',
-											borderRadius: '0.8rem',
-
-											'& .MuiInputBase-input': {
-												height: '100%',
-												padding: '0 14px',
-												fontSize: '1.4rem'
-											}
+											padding: '0 14px',
+											fontSize: '1.4rem'
 										}
-									}}
-									InputProps={{
-										endAdornment: (
-											<Box sx={{ cursor: 'pointer' }}>
-												<SearchIcon />
-											</Box>
-										)
-									}}
-									placeholder={options.search.placeholder}
-								/>
-							</Box>
+									}
+								}}
+								InputProps={{
+									startAdornment: (
+										<Box
+											sx={{
+												cursor: 'pointer',
+												display: 'flex',
+												alignItems: 'center',
+												marginRight: '8px'
+											}}
+										>
+											<SearchIcon />
+										</Box>
+									)
+								}}
+								placeholder={options.search.placeholder}
+							/>
 						)}
 					</Box>
+
 					<Box sx={{ display: 'flex', alignItems: 'center' }}>
 						<Box sx={{ position: 'relative' }}>
 							{options?.filter && options.filter.isShow && (
@@ -166,7 +169,6 @@ const DataTable: React.FC<DataTableProps> = ({
 											'&.MuiButtonBase-root.MuiButton-root': { height: '4.6rem' }
 										}}
 										size="medium"
-										// startIcon={<FilterInfoIcon />}
 										onClick={() => {
 											if (options && options.filter && options.filter.isShow && !render) {
 												setRender(true);
@@ -187,7 +189,7 @@ const DataTable: React.FC<DataTableProps> = ({
 								variant="contained"
 								startIcon={<AddIcon />}
 								size="medium"
-								sx={{ marginLeft: '24px', borderRadius: '20px' }}
+								sx={{ marginLeft: '24px', borderRadius: '20px', height: '4.4rem' }}
 								onClick={() => {
 									setShow(true);
 								}}

@@ -3,7 +3,7 @@
 import DataTable from '@/components/common/DataTable/DataTable';
 import { Box, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { categoriesActions, selectDocumentType } from '@/redux/slices/categories';
+import { categoriesActions, selectDocumentType, selectPagination } from '@/redux/slices/categories';
 import { useEffect } from 'react';
 import theme from '@/themes/theme.d';
 import FormModal from '../components/FormModal/FormModal';
@@ -12,16 +12,23 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DeletePopUp from '@/components/common/DeletePopUp/DeletePopUp';
 import { toast } from 'react-toastify';
+import useHandlePagination from '@/hooks/useHandlePagination';
+import Pagination from '@/components/common/Pagination/Pagination';
 
 const DocumentTypeList = () => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const documentTypes = useSelector(selectDocumentType);
+	const pagination = useSelector(selectPagination);
 	const loading = useSelector((state: any) => state.categories.loading);
 
+	//hooks
+
+	const { page, pageSize, handleChangePage, handleChangePageSize } = useHandlePagination();
+
 	useEffect(() => {
-		dispatch(categoriesActions.fetchGetDocumentType());
-	}, [dispatch]);
+		dispatch(categoriesActions.fetchGetDocumentType({ page, pageSize }));
+	}, [dispatch, page, pageSize]);
 
 	const operationColumns = [
 		{
@@ -72,6 +79,7 @@ const DocumentTypeList = () => {
 				<DataTable
 					data={documentTypes || []}
 					columns={operationColumns}
+					isLoading={loading}
 					customTableStyles={{
 						height: '90%'
 					}}
@@ -106,7 +114,7 @@ const DocumentTypeList = () => {
 											meta: {
 												onSuccess: () => {
 													toast.success('Xoá loại văn bản thành công!', { autoClose: 2000 });
-													dispatch(categoriesActions.fetchGetDocumentType());
+													dispatch(categoriesActions.fetchGetDocumentType({ page, pageSize }));
 												},
 												onError: () => {
 													toast.error('Xoá loại văn bản thất bại!', { autoClose: 2000 });
@@ -122,6 +130,13 @@ const DocumentTypeList = () => {
 					}}
 				/>
 			</Box>
+			<Pagination
+				total={pagination.total_count}
+				page={pagination.current_page}
+				pageSize={pagination.limit}
+				handleChangePage={handleChangePage}
+				handleChangePageSize={handleChangePageSize}
+			/>
 		</Box>
 	);
 };
